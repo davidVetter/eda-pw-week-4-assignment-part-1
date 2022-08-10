@@ -100,10 +100,17 @@ console.log('We are looking for Black, is it here?', find('Black', ['Yellow', 'P
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
+  let target = letter; // assign first argument as variable
+  let givenString = string; // assign second argument as variable
+  if ( givenString.substring(0, 1) === target ) {
+    return true; // return true if first letter of string is the same as given letter
+  } else {
+    return false;
+  } // end if/else
+} // end isFirstLetter
 
-}
-console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
-console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
+console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') ); // console logs to show
+console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') ); // function works
 
 // 9. Function to return the sum of all numbers in an array
 function sumAll( ) {
