@@ -70,9 +70,29 @@ console.log(`The last item in the array from an array by name is ${getLast(testA
 // 7. Function to find a value in an array. Return true if the 
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
+let arr7 = [2, 3, 4, 5, 6, 7];
+let arrString = ['Red', 'Green', 'Orange', 'Purple'];
 function find( value, array ){
-  
+  let arr = array;
+  let target = value;
+  for (item of arr) {
+    if (item === target) {
+      return true;
+    }
+  }
+  return false;
 }
+
+console.log(`We are looking for the number 75, is it here? ${find(75, [32, 57, 63, 75])}`);
+console.log('We are looking for the number 6, is it here?', find(6, arr7));
+console.log('We are looking for the number 8, is it here?', find(8, arr7));
+console.log('We are looking for Orange, is it here?', find('Orange', arrString));
+console.log('We are looking for Blue, is it here?', find('Blue', arrString));
+console.log('We are looking for Black, is it here?', find('Black', ['Yellow', 'Pink', 'Brown', 'Blue']));
+
+
+
+
 
 // ----------------------
 // Stretch Goals
