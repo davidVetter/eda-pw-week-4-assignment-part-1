@@ -107,17 +107,25 @@ function isFirstLetter(letter, string) {
   } else {
     return false;
   } // end if/else
-} // end isFirstLetter
+} // end isFirstLetter function
 
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') ); // console logs to show
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') ); // function works
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
-  let sum = 0
+let arrSum = [ 5, 10, 20, 30 ]; // array of test numbers
+function sumAll( array ) {
+  let sum = 0; // variable for total, starting at 0
+  let arr = array; // assigning argument array to array in the function
   // TODO: loop to add items
-  return sum;
-}
+  for ( num of arr ) { // for of loop total numbers
+    sum += num; // adding the numbers array to the total
+  }
+  return sum; // return total number in the array
+} // end sumAll function
+
+console.log(`The total of the array is: ${sumAll(arrSum)}`); // console logs to show the function
+console.log('The total of 3+4+5+6 is ', sumAll([3, 4, 5, 6])); // functions
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
