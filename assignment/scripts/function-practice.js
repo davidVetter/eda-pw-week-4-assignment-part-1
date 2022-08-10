@@ -41,9 +41,10 @@ console.log('The sum of the three numbers is: ', multiplyThree(2, 3, 5)); // log
 //    or greater than zero, and false otherwise
 function isPositive( number ) {
   if ( number > 0 ){
-    return;
+    return true;
+  } else {
+    return false;
   }
-    return;
 }
 // Call the function to test each outcome (true & false) 
 // Write a separate console.log statement for each outcome
