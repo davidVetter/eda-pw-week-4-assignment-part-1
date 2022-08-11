@@ -120,7 +120,7 @@ function sumAll( array ) {
   let arr = array; // assigning argument array to array in the function
   // TODO: loop to add items
   for ( num of arr ) { // for of loop total numbers
-    sum += num; // adding the numbers array to the total
+    sum += num; // adding the numbers from array to the total
   }
   return sum; // return total number in the array
 } // end sumAll function
