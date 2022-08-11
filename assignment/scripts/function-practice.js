@@ -16,7 +16,7 @@ console.log('Test - should say "Hello World!"', hello());
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName( name ) {
   let myName = name; // set variable myName = to argument
-  return myName;
+  return myName; // returns name that was passed as argument
 } // end helloName function
 // Remember to call the function to test
 console.log('Hello there, ', helloName('David'));
@@ -126,11 +126,33 @@ function sumAll( array ) {
 } // end sumAll function
 
 console.log(`The total of the array is: ${sumAll(arrSum)}`); // console logs to show the function
-console.log('The total of 3+4+5+6 is ', sumAll([3, 4, 5, 6])); // functions
+console.log('The total of 3 + 4 + 5 + 6 is ', sumAll([3, 4, 5, 6])); // functions
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
+let posArray = [ -3, 0, 2, 5, 10 ]; // test array
+let noPos = [ -10, -7, -4, -2, 0 ]; // no positives test array
+let emptyArr = []; // empty test array
+
+function posCheck ( array ) {
+  let arr = array; // creating variable for first argument
+  let allPos = []; // create empty array for positive numbers
+  for ( num of arr ){ // loop to check the array given as argument
+    if ( num > 0 ) { // if to check if positive
+      allPos.push( num ); // add the number to a new array if positive
+    } // end if
+  } // end for loop
+  return allPos; // return new array with only positive numbers
+} // end posCheck function
+
+//logs to show the new array with mixed numbers, no positives and one that is empty
+console.log(`The new array with only positive numbers from -3, 0, 2, 5, 10 is: ${posCheck( posArray ).join( ', ' )}`);
+console.log(`The new array with only positives from -10, -4, 0, 1, 10, 15 is: ${posCheck( [ -10, -4, 0, 1, 10, 15 ] ).join(', ')}`);
+console.log('The new array when no positive numbers are passed is: ', posCheck( noPos ));
+console.log('The new array when no positive numbers are passed is: ', posCheck( [ -30, -18, -9, -2, 0 ] ));
+console.log('The the new array when the passed array is empty is: ', posCheck( emptyArr ));
+console.log('The the new array when the passed array is empty is: ', posCheck( [] ));
 
 
 
