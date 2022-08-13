@@ -76,7 +76,7 @@ let arrString = ['Red', 'Green', 'Orange', 'Purple']; // test array with strings
 function find( value, array ){
   let target = value; // create variable for first argument
   let arr = array; // create variable for second argument
-  for (item of arr) { // loop to check the item in arr
+  for (let item of arr) { // loop to check the item in arr
     if (item === target) { // if to check if equal to first argument
       return true;
     }
@@ -114,12 +114,12 @@ console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') ); /
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') ); // function works
 
 // 9. Function to return the sum of all numbers in an array
-let arrSum = [ 5, 10, 20, 30 ]; // array of test numbers
-function sumAll( array ) {
+let arrSum = [5, 10, 20, 30]; // array of test numbers
+function sumAll(array) {
   let sum = 0; // variable for total, starting at 0
   let arr = array; // assigning argument array to array in the function
   // TODO: loop to add items
-  for ( num of arr ) { // for of loop total numbers
+  for (let num of arr) { // for of loop total numbers
     sum += num; // adding the numbers from array to the total
   }
   return sum; // return total number in the array
@@ -138,7 +138,7 @@ let emptyArr = []; // empty test array
 function posCheck ( array ) {
   let arr = array; // creating variable for first argument
   let allPos = []; // create empty array for positive numbers
-  for ( num of arr ){ // loop to check the array given as argument
+  for ( let num of arr ){ // loop to check the array given as argument
     if ( num > 0 ) { // if to check if positive
       allPos.push( num ); // add the number to a new array if positive
     } // end if
@@ -154,8 +154,66 @@ console.log('The new array when no positive numbers are passed is: ', posCheck( 
 console.log('The the new array when the passed array is empty is: ', posCheck( emptyArr ));
 console.log('The the new array when the passed array is empty is: ', posCheck( [] ));
 
-
-
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+// TRACK THE ROBOT (PART 2)
+// https://edabit.com/challenge/jfpfpH6w42tZeRo2T
+// This function is designed to track a robot moving on a grid. You pass as many movement instructions as you want as arguments.
+// After each move the robot turns 90 degrees clockwise. Given the movements you are to determine where the robot's final position is.
+// Example - pass [20, 30, 10, 40] **Robot always starts at (0, 0) facing North**
+// The robot moves 20 steps to the North, turns 90 clockwise @ (0, 20)
+// Then the robot is facing east and moves 30 steps, turns 90 clockwise @ (30, 20)
+// Then the robot is facing south and moves 10 steps, turns 90 clockwise @ (30,10)
+// Finally the robot is facing west and moves 40 steps, turns 90 clockwise @ (-10, 10)
+// Final position is (-10, 10)
+
+function trackRobot(...theArgs)  {
+  let c = theArgs.length; // count number of args passed
+  let args = theArgs; // variable for args
+  let xCord = 0; // staring point of x-coordinate
+  let yCord = 0; // starting point of y-coordinate
+  let north = true; // starting direction of North
+  let east = false; // starting direction of East
+  let south = false; // starting direction of South
+  let west = false; // starting direction of West
+  console.log(`You passed ${c} args and they were [${args.join(', ')}]`);
+  for (let steps of args) {
+    if (north) { // moving North and/or starting point
+      yCord = steps + yCord;
+      north = false;
+      east = true;
+      south = false;
+      west = true;
+      console.log(`The robot is at (${xCord}, ${yCord})`);
+    } else if (east) { // Moving East
+      xCord = steps + xCord;
+      north = false;
+      east = false;
+      south = true;
+      west = false;
+      console.log(`The robot is at (${xCord}, ${yCord})`);
+    } else if (south) { // Moving South
+      yCord = yCord - steps;
+      north = false;
+      east = false;
+      south = false;
+      west = true;
+      console.log(`The robot is at (${xCord}, ${yCord})`);
+    } else if (west) { // Moving West
+      xCord = xCord - steps;
+      north = true;
+      east = false;
+      south = false;
+      west = false;
+      console.log(`The robot is at (${xCord}, ${yCord})`);
+    } // end if/else
+  } // end for loop
+  console.log(`The robot is currently at (${xCord}, ${yCord})`);
+} // end trackRobot function
+
+trackRobot(20,30,10,40);
+trackRobot();
+trackRobot(-10,20,10);
+trackRobot(20, 10, 50, 70, 10, 30, 20);
