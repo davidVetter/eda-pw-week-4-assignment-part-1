@@ -223,17 +223,18 @@ function testRobot() {
   let rbMoves;
   let arrMoves = [];
   let arrNum = [];
-  if (document.getElementById('robotData').value.length === 0) {
+  if (document.getElementById('robotData').value.length === 0) { // runs test logs if no user data is input
   trackRobot(20, 30, 10, 40);
   trackRobot();
   trackRobot(-10, 20, 10);
   trackRobot(20, 10, 50, 70, 10, 30, 20);
   } else {
     rbMoves = document.getElementById('robotData').value;
-    arrMoves = rbMoves.split(',');
-    arrMoves.forEach(str => {
-      arrNum.push(Number(str));
+    arrMoves = rbMoves.split(','); // splits string of values seperated by commas into array of values
+    arrMoves.forEach(str => { // converts each string in the array to a number and adds them
+      arrNum.push(Number(str)); // to a new array
     });
-    trackRobot(...arrNum);
+    trackRobot(...arrNum); // run trackRobot function with new array of numbers as individual arguments
   } // end if/else
+  document.getElementById('robotData').value = ''; // clear out input box after submitting
 } // end testRobot function

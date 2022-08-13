@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <title>Week 4 Assignment</title>
     <script src="scripts/function-practice.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body style="background-color: black; color: #39ff14;">
-    <h1>Week 4 Assignment - Part 1</h1>
-    <p>See console for output.</p>
+  <body>
+    <h1><span id="head">Week 4</span> Assignment - Part 1</h1>
+    <h2>See console for output.</h2>
     <p>There is a robot we can make move! Start by entering the number steps to take. You can also enter more than one movement command by using commas such as 1,2,3,4...</p>
-    <button id="testRobBtn" onclick="testRobot()">Move</button>
-    <input type="text" id="robotData" placeholder="Robot moves...">
-    <p>*Running without entering data will run some preset test data</p>
+    <button id="testRobBtn" onclick="testRobot()">Move</button><input type="text" id="robotData" placeholder=" Ex. 10,20,30...">
+    <p id="extra">*Running without entering data will run some preset test data</p>
   </body>
 </html>
