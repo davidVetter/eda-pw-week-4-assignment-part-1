@@ -178,42 +178,62 @@ function trackRobot(...theArgs)  {
   let east = false; // starting direction of East
   let south = false; // starting direction of South
   let west = false; // starting direction of West
-  console.log(`You passed ${c} args and they were [${args.join(', ')}]`);
+  if (c === 0) {
+  console.log(`You gave ${c} commands so the robot didn't move!`);
+  } else if (c === 1) {
+    console.log(`You gave ${c} command and it was ${args} steps.`);
+  } else {
+    console.log(`You gave ${c} commands and they were ${args.join(' steps, ')} steps.`);
+  }
   for (let steps of args) {
-    if (north) { // moving North and/or starting point
+    if (north) { // Moving North and/or starting point
       yCord = steps + yCord;
       north = false;
       east = true;
       south = false;
       west = true;
-      console.log(`The robot is at (${xCord}, ${yCord})`);
+      console.log(`The robot traveled North and is at (${xCord}, ${yCord})`);
     } else if (east) { // Moving East
       xCord = steps + xCord;
       north = false;
       east = false;
       south = true;
       west = false;
-      console.log(`The robot is at (${xCord}, ${yCord})`);
+      console.log(`The robot traveled East and is at (${xCord}, ${yCord})`);
     } else if (south) { // Moving South
       yCord = yCord - steps;
       north = false;
       east = false;
       south = false;
       west = true;
-      console.log(`The robot is at (${xCord}, ${yCord})`);
+      console.log(`The robot traveled South and is at (${xCord}, ${yCord})`);
     } else if (west) { // Moving West
       xCord = xCord - steps;
       north = true;
       east = false;
       south = false;
       west = false;
-      console.log(`The robot is at (${xCord}, ${yCord})`);
+      console.log(`The robot traveled West and is at (${xCord}, ${yCord})`);
     } // end if/else
   } // end for loop
   console.log(`The robot is currently at (${xCord}, ${yCord})`);
 } // end trackRobot function
 
-trackRobot(20,30,10,40);
-trackRobot();
-trackRobot(-10,20,10);
-trackRobot(20, 10, 50, 70, 10, 30, 20);
+function testRobot() {
+  let rbMoves;
+  let arrMoves = [];
+  let arrNum = [];
+  if (document.getElementById('robotData').value.length === 0) {
+  trackRobot(20, 30, 10, 40);
+  trackRobot();
+  trackRobot(-10, 20, 10);
+  trackRobot(20, 10, 50, 70, 10, 30, 20);
+  } else {
+    rbMoves = document.getElementById('robotData').value;
+    arrMoves = rbMoves.split(',');
+    arrMoves.forEach(str => {
+      arrNum.push(Number(str));
+    });
+    trackRobot(...arrNum);
+  } // end if/else
+} // end testRobot function
