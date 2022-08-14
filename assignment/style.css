@@ -67,3 +67,15 @@ p {
  #extra {
     font-size: 0.9vw;
  }
+
+ pre {
+    background-color: #F3eeee;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #5c80bc;
+ }
+
+ details {
+    padding-left: 8px;
+    padding-right: 8px;
+ }
