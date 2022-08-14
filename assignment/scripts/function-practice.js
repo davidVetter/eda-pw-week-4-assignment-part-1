@@ -192,28 +192,44 @@ function trackRobot(...theArgs)  {
       east = true;
       south = false;
       west = true;
-      console.log(`The robot traveled North and is at (${xCord}, ${yCord})`);
+      if (steps < 0) {
+        console.log(`The robot traveled South and is at (${xCord}, ${yCord})`);
+      } else {
+        console.log(`The robot traveled North and is at (${xCord}, ${yCord})`);
+      }
     } else if (east) { // Moving East
       xCord = steps + xCord;
       north = false;
       east = false;
       south = true;
       west = false;
-      console.log(`The robot traveled East and is at (${xCord}, ${yCord})`);
+      if (steps < 0) {
+        console.log(`The robot traveled West and is at (${xCord}, ${yCord})`);
+      } else {
+        console.log(`The robot traveled East and is at (${xCord}, ${yCord})`);
+      }
     } else if (south) { // Moving South
       yCord = yCord - steps;
       north = false;
       east = false;
       south = false;
       west = true;
-      console.log(`The robot traveled South and is at (${xCord}, ${yCord})`);
+      if (steps < 0) {
+        console.log(`The robot traveled North and is at (${xCord}, ${yCord})`);
+      } else {
+        console.log(`The robot traveled South and is at (${xCord}, ${yCord})`);
+      }
     } else if (west) { // Moving West
       xCord = xCord - steps;
       north = true;
       east = false;
       south = false;
       west = false;
-      console.log(`The robot traveled West and is at (${xCord}, ${yCord})`);
+      if (steps < 0) {
+        console.log(`The robot traveled East and is at (${xCord}, ${yCord})`);
+      } else {
+        console.log(`The robot traveled West and is at (${xCord}, ${yCord})`);
+      }
     } // end if/else
   } // end for loop
   console.log(`The robot is currently at (${xCord}, ${yCord})`);
