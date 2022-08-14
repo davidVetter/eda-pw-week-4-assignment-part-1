@@ -45,6 +45,11 @@ p {
     font-size: 3vw;
  }
 
+ button:hover {
+    background-color: #e8c547;
+    color: #5c80bc;
+ }
+
  input {
     margin-left: 0%;
     padding-left: 0%;
@@ -53,6 +58,10 @@ p {
     border-color: #5c80bc;
     background-color: #e8c547;
     font-size: 3vw;
+ }
+
+ input:hover {
+    background-color: #cdd1c4;
  }
 
  #extra {
